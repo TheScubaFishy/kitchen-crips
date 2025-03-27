@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://b8i3mjqnql4pe"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_ot4ay"]
+[ext_resource type="Texture2D" uid="uid://m06ymxg4irl8" path="res://art/beanwalk1.png" id="2_vmou3"]
+[ext_resource type="Texture2D" uid="uid://c2883kkmky0lq" path="res://art/beanwalk2.png" id="3_gwulp"]
+[ext_resource type="Texture2D" uid="uid://bc7bcn6fhmnbs" path="res://art/hotbar_borders/longbar.png" id="5_cgeu7"]
+[ext_resource type="Texture2D" uid="uid://b412tjqvp277s" path="res://art/hotbar_borders/border_04_nobackground.png" id="6_d4y1t"]
+[ext_resource type="Texture2D" uid="uid://bjvkuwm3fduuh" path="res://art/hotbar_icons/bucket.png" id="7_p52y1"]
+[ext_resource type="Texture2D" uid="uid://eanjc6anh6j7" path="res://art/hotbar_icons/mushroom1.png" id="8_8hlks"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mxama"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vmou3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gwulp")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l6mww"]
+radius = 40.0
+height = 110.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_ot4ay")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_mxama")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1)
+scale = Vector2(0.2, 0.2)
+shape = SubResource("CapsuleShape2D_l6mww")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(0.2, 0.2)
+zoom = Vector2(5, 5)
+
+[node name="Panel2" type="Panel" parent="."]
+offset_top = 952.0
+offset_right = 640.0
+offset_bottom = 1078.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Longbar" type="Sprite2D" parent="Panel2"]
+position = Vector2(216, 67)
+scale = Vector2(2, 2)
+texture = ExtResource("5_cgeu7")
+
+[node name="Border04Nobackground" type="Sprite2D" parent="Panel2"]
+position = Vector2(480, 67)
+scale = Vector2(2, 2)
+texture = ExtResource("6_d4y1t")
+
+[node name="Bucket" type="Sprite2D" parent="Panel2/Border04Nobackground"]
+position = Vector2(-1.5, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_p52y1")
+
+[node name="Border04Nobackground2" type="Sprite2D" parent="Panel2"]
+position = Vector2(576, 67)
+scale = Vector2(2, 2)
+texture = ExtResource("6_d4y1t")
+
+[node name="Mushroom1" type="Sprite2D" parent="Panel2/Border04Nobackground2"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("8_8hlks")
