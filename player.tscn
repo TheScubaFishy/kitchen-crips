@@ -1,53 +1,85 @@
-[gd_scene load_steps=10 format=3 uid="uid://b8i3mjqnql4pe"]
+[gd_scene load_steps=16 format=3 uid="uid://b8i3mjqnql4pe"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_ot4ay"]
-[ext_resource type="Texture2D" uid="uid://m06ymxg4irl8" path="res://art/beanwalk1.png" id="2_vmou3"]
-[ext_resource type="Texture2D" uid="uid://c2883kkmky0lq" path="res://art/beanwalk2.png" id="3_gwulp"]
+[ext_resource type="Texture2D" uid="uid://cu2f5kjb2dypt" path="res://art/Textures/Fork/arrow_right1.png" id="2_ifghc"]
+[ext_resource type="Texture2D" uid="uid://m06ymxg4irl8" path="res://art/Textures/BeanDEVART/beanwalk1.png" id="2_wptch"]
+[ext_resource type="Texture2D" uid="uid://c2883kkmky0lq" path="res://art/Textures/BeanDEVART/beanwalk2.png" id="3_64gua"]
+[ext_resource type="Texture2D" uid="uid://b63rc5iflukhp" path="res://art/Textures/Fork/arrow_right2.png" id="3_ph5na"]
+[ext_resource type="Texture2D" uid="uid://bql24ywvdgfaa" path="res://art/Textures/Fork/arrow_right3.png" id="4_03jyn"]
 [ext_resource type="Texture2D" uid="uid://bc7bcn6fhmnbs" path="res://art/hotbar_borders/longbar.png" id="5_cgeu7"]
 [ext_resource type="Texture2D" uid="uid://b412tjqvp277s" path="res://art/hotbar_borders/border_04_nobackground.png" id="6_d4y1t"]
+[ext_resource type="Texture2D" uid="uid://cyi8jxlim6bub" path="res://art/Textures/Fork/Arrow_up1.png" id="7_emufg"]
 [ext_resource type="Texture2D" uid="uid://bjvkuwm3fduuh" path="res://art/hotbar_icons/bucket.png" id="7_p52y1"]
 [ext_resource type="Texture2D" uid="uid://eanjc6anh6j7" path="res://art/hotbar_icons/mushroom1.png" id="8_8hlks"]
+[ext_resource type="Texture2D" uid="uid://b2icrbxhvhyb1" path="res://art/Textures/Fork/Arrow_up2.png" id="8_mb2ue"]
+[ext_resource type="Texture2D" uid="uid://ukaycb1wqx33" path="res://art/Textures/Fork/Arrow_up3.png" id="9_mx47f"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mxama"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_vmou3")
+"texture": ExtResource("2_wptch")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_gwulp")
+"texture": ExtResource("3_64gua")
 }],
 "loop": true,
-"name": &"walk",
+"name": &"bean_hori",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ifghc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ph5na")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_03jyn")
+}],
+"loop": true,
+"name": &"fork_hori",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_emufg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_mb2ue")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_mx47f")
+}],
+"loop": true,
+"name": &"fork_verti",
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l6mww"]
-radius = 40.0
-height = 110.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72qij"]
+size = Vector2(24, 24)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_ot4ay")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_mxama")
-animation = &"walk"
+animation = &"fork_verti"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -1)
-scale = Vector2(0.2, 0.2)
-shape = SubResource("CapsuleShape2D_l6mww")
+shape = SubResource("RectangleShape2D_72qij")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-scale = Vector2(0.2, 0.2)
-zoom = Vector2(5, 5)
+zoom = Vector2(8, 8)
 
 [node name="Panel2" type="Panel" parent="."]
-offset_top = 952.0
-offset_right = 640.0
-offset_bottom = 1078.0
+offset_left = -120.0
+offset_top = 52.0
+offset_right = 520.0
+offset_bottom = 178.0
+scale = Vector2(0.125, 0.125)
 metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
 
 [node name="Longbar" type="Sprite2D" parent="Panel2"]
 position = Vector2(216, 67)
@@ -70,5 +102,18 @@ scale = Vector2(2, 2)
 texture = ExtResource("6_d4y1t")
 
 [node name="Mushroom1" type="Sprite2D" parent="Panel2/Border04Nobackground2"]
+visible = false
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("8_8hlks")
+
+[node name="Ability2" type="Button" parent="Panel2/Border04Nobackground2"]
+offset_left = -18.0
+offset_top = -18.0
+offset_right = 18.0
+offset_bottom = 18.0
+icon = ExtResource("8_8hlks")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="Panel2/Border04Nobackground2/Ability2" to="." method="_on_ability_2_pressed"]
