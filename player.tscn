@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b8i3mjqnql4pe"]
+[gd_scene load_steps=17 format=3 uid="uid://b8i3mjqnql4pe"]
 
 [ext_resource type="Script" uid="uid://gft77u2f87oj" path="res://player.gd" id="1_ot4ay"]
 [ext_resource type="Texture2D" uid="uid://cu2f5kjb2dypt" path="res://art/Textures/Fork/arrow_right1.png" id="2_ifghc"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://eanjc6anh6j7" path="res://art/hotbar_icons/mushroom1.png" id="8_8hlks"]
 [ext_resource type="Texture2D" uid="uid://b2icrbxhvhyb1" path="res://art/Textures/Fork/Arrow_up2.png" id="8_mb2ue"]
 [ext_resource type="Texture2D" uid="uid://ukaycb1wqx33" path="res://art/Textures/Fork/Arrow_up3.png" id="9_mx47f"]
+[ext_resource type="Texture2D" uid="uid://ccx0wb1gcvfdd" path="res://art/Textures/24x24test.png" id="10_bwjto"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mxama"]
 animations = [{
@@ -54,17 +55,26 @@ animations = [{
 "loop": true,
 "name": &"fork_verti",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_bwjto")
+}],
+"loop": true,
+"name": &"test",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_72qij"]
-size = Vector2(24, 24)
+size = Vector2(16, 16)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_ot4ay")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.666667, 0.666667)
 sprite_frames = SubResource("SpriteFrames_mxama")
-animation = &"fork_verti"
+animation = &"fork_hori"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_72qij")
