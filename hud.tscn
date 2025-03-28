@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://beajp4cm3lcdq"]
 
-[ext_resource type="Script" path="res://HUD.gd" id="1_v45by"]
+[ext_resource type="Script" uid="uid://cmk55bknybp8h" path="res://HUD.gd" id="1_v45by"]
 
 [node name="HUD" type="CanvasLayer"]
 visible = false

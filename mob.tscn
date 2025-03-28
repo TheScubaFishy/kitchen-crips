@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://gwrrn64pquyu"]
 
-[ext_resource type="Script" path="res://Mob.gd" id="1_untri"]
+[ext_resource type="Script" uid="uid://gdeo2x4i1owy" path="res://Mob.gd" id="1_untri"]
 [ext_resource type="Texture2D" uid="uid://m06ymxg4irl8" path="res://art/Textures/BeanDEVART/beanwalk1.png" id="2_0b410"]
 [ext_resource type="Texture2D" uid="uid://c2883kkmky0lq" path="res://art/Textures/BeanDEVART/beanwalk2.png" id="3_w28oj"]
 
