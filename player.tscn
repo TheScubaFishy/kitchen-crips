@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://eanjc6anh6j7" path="res://art/hotbar_icons/mushroom1.png" id="8_8hlks"]
 [ext_resource type="Texture2D" uid="uid://b2icrbxhvhyb1" path="res://art/Textures/Fork/Arrow_up2.png" id="8_mb2ue"]
 [ext_resource type="Texture2D" uid="uid://ukaycb1wqx33" path="res://art/Textures/Fork/Arrow_up3.png" id="9_mx47f"]
-[ext_resource type="Texture2D" uid="uid://ccx0wb1gcvfdd" path="res://art/Textures/24x24test.png" id="10_bwjto"]
+[ext_resource type="Texture2D" uid="uid://efmbuj3i7qog" path="res://art/Textures/24x24test.png" id="10_bwjto"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mxama"]
 animations = [{
