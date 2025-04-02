@@ -1,63 +1,52 @@
-[gd_scene load_steps=2 format=3 uid="uid://beajp4cm3lcdq"]
+[gd_scene load_steps=6 format=3 uid="uid://beajp4cm3lcdq"]
 
 [ext_resource type="Script" uid="uid://cmk55bknybp8h" path="res://HUD.gd" id="1_v45by"]
+[ext_resource type="Texture2D" uid="uid://bc7bcn6fhmnbs" path="res://art/hotbar_borders/longbar.png" id="2_a2258"]
+[ext_resource type="Texture2D" uid="uid://b412tjqvp277s" path="res://art/hotbar_borders/border_04_nobackground.png" id="3_1xsix"]
+[ext_resource type="Texture2D" uid="uid://bjvkuwm3fduuh" path="res://art/hotbar_icons/bucket.png" id="4_rftc2"]
+[ext_resource type="Texture2D" uid="uid://eanjc6anh6j7" path="res://art/hotbar_icons/mushroom1.png" id="5_61f8s"]
 
 [node name="HUD" type="CanvasLayer"]
-visible = false
 script = ExtResource("1_v45by")
 
-[node name="ScoreLabel" type="Label" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 91.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 64
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Hotbar" type="Panel" parent="."]
+offset_top = 954.0
+offset_right = 640.0
+offset_bottom = 1080.0
 metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
 
-[node name="Message" type="Label" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -960.0
-offset_top = -180.0
-offset_right = 960.0
-offset_bottom = -89.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 64
-text = "2D Beta"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-metadata/_edit_use_anchors_ = true
+[node name="Longbar" type="Sprite2D" parent="Hotbar"]
+position = Vector2(216, 67)
+scale = Vector2(2, 2)
+texture = ExtResource("2_a2258")
 
-[node name="StartButton" type="Button" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -100.0
-offset_top = -100.0
-offset_right = 100.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 64
-text = "Start
-"
-metadata/_edit_use_anchors_ = true
+[node name="Border04Nobackground" type="Sprite2D" parent="Hotbar"]
+position = Vector2(480, 67)
+scale = Vector2(2, 2)
+texture = ExtResource("3_1xsix")
 
-[node name="MessageTimer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
+[node name="Bucket" type="Sprite2D" parent="Hotbar/Border04Nobackground"]
+position = Vector2(-1.5, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_rftc2")
 
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
+[node name="Border04Nobackground2" type="Sprite2D" parent="Hotbar"]
+position = Vector2(576, 67)
+scale = Vector2(2, 2)
+texture = ExtResource("3_1xsix")
+
+[node name="Mushroom1" type="Sprite2D" parent="Hotbar/Border04Nobackground2"]
+visible = false
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_61f8s")
+
+[node name="Ability2" type="Button" parent="Hotbar/Border04Nobackground2"]
+offset_left = -18.0
+offset_top = -18.0
+offset_right = 18.0
+offset_bottom = 18.0
+icon = ExtResource("5_61f8s")
+flat = true
+icon_alignment = 1
+expand_icon = true
